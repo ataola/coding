@@ -1,0 +1,36 @@
+{
+  "name": "coding",
+  "version": "1.0.0",
+  "description": "a reposity with coding example",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:help": "jest --help",
+    "test:debug": "jest --debug",
+    "test:verbose": "jest --verbose",
+    "test:init": "jest --init",
+    "test:json": "jest --json",
+    "test:exportJson": "jest --json --outputFile=./export/reporter.json",
+    "test:coverage": "jest --coverage",
+    "test:watchAll": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ataola/coding.git"
+  },
+  "keywords": [
+    "leetcode"
+  ],
+  "author": "ataola (Zheng JiangTao)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ataola/coding/issues"
+  },
+  "homepage": "https://github.com/ataola/coding#readme",
+  "dependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3"
+  }
+}
