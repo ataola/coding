@@ -8,6 +8,8 @@
 
 ### easy
 
+- [x] 1、[两数之和](./note/leetcode/1-two-sum.md)
+
 ### medium
 
 ### hard
