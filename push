@@ -26,6 +26,6 @@ if [[ $CURRENT_BRANCH = feature/* ]]; then
 elif [[ $CURRENT_BRANCH = master ]]; then
   e git stash
   e git push
-  e npm publish --access public
+# e npm publish --access public
   e git stash pop || true
 fi

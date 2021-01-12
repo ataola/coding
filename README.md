@@ -10,6 +10,8 @@
 
 - [x] 1、[两数之和](./note/leetcode/1-two-sum.md)
 
+- [x] 7、[整数反转](./note/leetcode/7-reverse-integer.md)
+
 ### medium
 
 ### hard
