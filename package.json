@@ -12,7 +12,9 @@
     "test:json": "jest --json",
     "test:exportJson": "jest --json --outputFile=./export/reporter.json",
     "test:coverage": "jest --coverage",
-    "test:watchAll": "jest --watchAll"
+    "test:watchAll": "jest --watchAll",
+    "git:pull": "pull",
+    "git:push": "push"
   },
   "repository": {
     "type": "git",
