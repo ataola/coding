@@ -42,9 +42,9 @@
 
 - `只会存在一个有效答案`
 
-## 题目出处
+## 出处
 
-链接：https://leetcode-cn.com/problems/two-sum
+链接：`https://leetcode-cn.com/problems/two-sum`
 
 ## 思路
 
@@ -96,28 +96,6 @@ describe('test function twoSum:', () => {
     expect(data).toEqual([1, 2]);
   });
 });
-```
-
-### 结果
-
-```
- ➜  coding git:(master) ✗ npm run test
-
-> coding@1.0.0 test
-> jest
-
- PASS  test/leetcode/1.test.js
-  test function twoSum:
-    ✓ test case nums = [3, 3], target = 6 (2 ms)
-    ✓ test case nums = [2,7,11,15], target = 9
-    ✓ test case nums = [3,2,4], target = 6 (1 ms)
-
-Test Suites: 1 passed, 1 total
-Tests:       3 passed, 3 total
-Snapshots:   0 total
-Time:        0.545 s, estimated 1 s
-Ran all test suites.
-➜  coding git:(master) ✗
 ```
 
 ## 思考

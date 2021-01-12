@@ -1,11 +1,11 @@
 language: node_js
 node_js:
   - 15
-before_script:
-  - npm install
 script: npm test
 cache:
-  npm: false
+  npm: true
 branches:
   only:
     - master
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
