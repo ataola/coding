@@ -15,3 +15,11 @@
 ### medium
 
 ### hard
+
+
+
+## 了解更多
+
+欢迎关注鄙人的公众号，一起学习，共同成长:smile:
+
+![](img/wechat-cnroadbridge.jpg)

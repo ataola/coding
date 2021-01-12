@@ -72,8 +72,6 @@ export default reverse;
 
 ## 测试
 
-### 脚本
-
 ```
 import twoSum from '../../code/leetcode/7';
 
