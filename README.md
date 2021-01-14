@@ -12,6 +12,10 @@
 
 - [x] 7、[整数反转](./note/leetcode/7-reverse-integer.md)
 
+- [x] 9、[回文数](./note/leetcode/9-palindrome-number.md)
+
+- [x] 13、[罗马数字转整数](./note/leetcode/13-roman-to-integer.md)
+
 ### medium
 
 ### hard
