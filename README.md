@@ -16,7 +16,7 @@
 
 - [x] 13、[罗马数字转整数](./note/leetcode/13-roman-to-integer.md)
 
-- [x] 13、[最长公共前缀](./note/leetcode/14-longest-common-prefix.md)
+- [x] 14、[最长公共前缀](./note/leetcode/14-longest-common-prefix.md)
 
 ### medium
 
