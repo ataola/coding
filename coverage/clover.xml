@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1610636145983" clover="3.2.0">
-  <project timestamp="1610636145983" name="All files">
-    <metrics statements="24" coveredstatements="23" conditionals="12" coveredconditionals="10" methods="4" coveredmethods="4" elements="40" coveredelements="37" complexity="0" loc="24" ncloc="24" packages="1" files="4" classes="4"/>
+<coverage generated="1610720674831" clover="3.2.0">
+  <project timestamp="1610720674831" name="All files">
+    <metrics statements="37" coveredstatements="36" conditionals="18" coveredconditionals="16" methods="6" coveredmethods="6" elements="61" coveredelements="58" complexity="0" loc="37" ncloc="37" packages="1" files="5" classes="5"/>
     <file name="1.js" path="/Users/zhengjiangtao/github/ataola/coding/code/leetcode/1.js">
       <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <line num="6" count="1" type="stmt"/>
@@ -23,6 +23,22 @@
       <line num="22" count="4" type="stmt"/>
       <line num="24" count="13" type="stmt"/>
       <line num="28" count="4" type="stmt"/>
+    </file>
+    <file name="14.js" path="/Users/zhengjiangtao/github/ataola/coding/code/leetcode/14.js">
+      <metrics statements="13" coveredstatements="13" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="6" count="5" type="cond" truecount="2" falsecount="0"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="9" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="12" count="3" type="stmt"/>
+      <line num="13" count="3" type="stmt"/>
+      <line num="14" count="3" type="stmt"/>
+      <line num="15" count="13" type="stmt"/>
+      <line num="16" count="45" type="cond" truecount="2" falsecount="0"/>
+      <line num="17" count="11" type="stmt"/>
+      <line num="19" count="2" type="stmt"/>
+      <line num="22" count="3" type="stmt"/>
     </file>
     <file name="7.js" path="/Users/zhengjiangtao/github/ataola/coding/code/leetcode/7.js">
       <metrics statements="4" coveredstatements="4" conditionals="6" coveredconditionals="5" methods="1" coveredmethods="1"/>
