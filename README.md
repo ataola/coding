@@ -18,7 +18,17 @@
 
 - [x] 14、[最长公共前缀](./note/leetcode/14-longest-common-prefix.md)
 
+- [x] 1232、[缀点成线](./note/leetcode/1232-check-if-it-is-a-straight-line.md)
+
+- [x] 1720、[解码异或后的数组](./note/leetcode/1720-decode-xored-array.md)
+
+- [x] 5653、[可以形成最大正方形的矩形数目](./note/leetcode/5653-number-of-rectangles-that-can-form-the-largest-square.md)
+
 ### medium
+
+- [x] 1721、[交换链表中的节点](./note/leetcode/1721-swapping-nodes-in-a-linked-list.md)
+
+- [x] 1726、[同积元组](./note/leetcode/1726-tuple-with-same-product.md)
 
 ### hard
 
