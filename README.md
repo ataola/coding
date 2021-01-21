@@ -26,6 +26,8 @@
 
 ### medium
 
+- [x] 8、[字符串转换整数 (atoi)](./note/leetcode/8-string-to-integer-atoi.md)
+
 - [x] 1721、[交换链表中的节点](./note/leetcode/1721-swapping-nodes-in-a-linked-list.md)
 
 - [x] 1726、[同积元组](./note/leetcode/1726-tuple-with-same-product.md)
