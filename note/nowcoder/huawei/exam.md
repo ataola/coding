@@ -221,3 +221,7 @@ function func(key, obj) {
 ## 最后
 
 总的来说，菊厂出的试卷题目考点还是分布比较均匀的，数据结构和常规算法一定要好好学，嗯，我回去补树去了。。。。。。
+
+## 说明
+
+本文首发于 GitHub 仓库`https://github.com/ataola/coding`，线上阅读地址：`https://zhengjiangtao.cn/coding/`，转载请注明出处，谢谢！
