@@ -2,7 +2,14 @@
 
 > 刷题动脑，防老年痴呆，防少年痴呆，努力成长
 
-[![Build Status](https://travis-ci.com/ataola/coding.svg?branch=master)](./coverage/lcov-report/index.html)
+<p align="center">
+  <a href="https://travis-ci.com/github/ataola/coding" target="_blank" rel="noopener noreferrer">
+    <img alt="Travis CI" src="https://img.shields.io/travis/ataola/coding.svg">
+  </a>
+  <a href="https://codecov.io/gh/ataola/coding" target="_blank" rel="noopener noreferrer">
+    <img alt="Codecov" src="https://img.shields.io/codecov/c/github/ataola/coding.svg">
+  </a>
+</p>
 
 ## Leetcode
 
