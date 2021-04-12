@@ -25,9 +25,6 @@ function func(line) {
       negative_num.push(+item);
     }
   });
-  const avg =
-    positive_num.length > 0
-      ? positive_num.reduce((pre, cur) => pre + cur) / positive_num.length
-      : 0;
+  const avg = positive_num.length > 0 ? positive_num.reduce((pre, cur) => pre + cur) / positive_num.length : 0;
   console.log(negative_num.length, avg.toFixed(1));
 }

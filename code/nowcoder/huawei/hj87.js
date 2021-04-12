@@ -48,9 +48,7 @@ function getScore(line) {
     has_lower_letter = true;
   }
 
-  const number_len = line.match(/\d+/g)
-    ? line.match(/\d+/g).join('').length
-    : 0;
+  const number_len = line.match(/\d+/g) ? line.match(/\d+/g).join('').length : 0;
   if (number_len === 1) {
     score += 10;
     has_number = true;
@@ -59,9 +57,7 @@ function getScore(line) {
     has_number = true;
   }
 
-  const symbol_len = line.match(/[^\w]/g)
-    ? line.match(/[^\w]/g).join('').length
-    : 0;
+  const symbol_len = line.match(/[^\w]/g) ? line.match(/[^\w]/g).join('').length : 0;
   if (symbol_len === 1) {
     score += 10;
     has_symbol = true;
@@ -74,11 +70,7 @@ function getScore(line) {
     score += 2;
   } else if (has_number && has_upper_letter && has_lower_letter && has_symbol) {
     score += 5;
-  } else if (
-    has_number &&
-    (has_upper_letter || has_lower_letter) &&
-    has_symbol
-  ) {
+  } else if (has_number && (has_upper_letter || has_lower_letter) && has_symbol) {
     score += 3;
   }
 

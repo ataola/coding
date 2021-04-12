@@ -1,0 +1,30 @@
+{
+  "extends": ["prettier", "plugin:prettier/recommended"],
+  "plugins": ["prettier"],
+  "parserOptions": {
+    "ecmaVersion": 2015,
+    "sourceType": "module"
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "no-console": "off",
+    "func-names": "off",
+    "no-unused-vars": "warn",
+    "object-shorthand": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto",
+        "singleQuote": true
+      }
+    ],
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off"
+  },
+  "env": {
+    "es6": true,
+    "node": true,
+    "jest": true,
+    "browser": true
+  }
+}

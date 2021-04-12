@@ -18,22 +18,7 @@ describe('test function tupleSameProduct: ', () => {
     expect(res).toBe(0);
   });
   test('test case nums = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192]', () => {
-    const res = tupleSameProduct([
-      1,
-      2,
-      4,
-      8,
-      16,
-      32,
-      64,
-      128,
-      256,
-      512,
-      1024,
-      2048,
-      4096,
-      8192,
-    ]);
+    const res = tupleSameProduct([1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192]);
     expect(res).toBe(1288);
   });
 });
