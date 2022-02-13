@@ -15,7 +15,12 @@
     "test:watchAll": "jest --watchAll",
     "pretty": "prettier --write \"./**/*.{js,jsx,json}\"",
     "git:pull": "pull",
-    "git:push": "push"
+    "git:push": "push",
+    "ebook:serve": "honkit serve ebook",
+    "ebook:build": "honkit build ebook",
+    "ebook:pdf": "honkit pdf ebook",
+    "ebook:mobi": "honkit mobi ebook",
+    "ebook:epub": "honkit epub ebook"
   },
   "repository": {
     "type": "git",
@@ -39,9 +44,9 @@
     "eslint": "^7.24.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
+    "honkit": "^3.7.1",
     "jest": "^26.6.3",
     "jest-cli": "^26.6.3",
     "prettier": "^2.2.1"
-  },
-  "dependencies": {}
+  }
 }

@@ -7,6 +7,7 @@ install:
   - npm install
 script:
   - npm test
+  - npm run ebook:build
 deploy:
   provider: pages
   skip-cleanup: true
