@@ -1,6 +1,6 @@
 # 设计模式
 
-- [Initial page](README.md)
+- [介绍](README.md)
 
 - [单例模式](singleton.md)
 
@@ -11,3 +11,5 @@
 - 代理模式
 
 - 观察者模式
+
+- [学习资料整理](resource.md)
