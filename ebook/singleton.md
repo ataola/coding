@@ -126,6 +126,60 @@ document.getElementById('BtnClose').addEventListener('click', () => {
 
 这个是笔者在通过 nodejs 做微信开发的时候，借助单例模式的思想优化相关的业务代码的实践所得，就是不能每次前端这边来一个请求，或者别的地方引用或者使用到封装的微信接口 API，就重新创建一个新的，那么数据量上去了，这边开销是会很大的，比如百万、千万等等，所以我们期望把它缓存下来，然后用到直接取就好了。
 
+```javascript
+// 创建一个微信公众号相关的API类
+class WechatOfficalAccountApi {
+  constructor(appId, appSecret, token) {
+    // code...
+  }
+}
+
+// 单例模式的实现
+const createWechatOfficalAccountApi = (function (appId, appSecret, token) {
+  let instance = null;
+  return function () {
+    if (!instance) {
+      instance = new WechatOfficalAccountApi(appId, appSecret, token);
+    }
+    return instance;
+  };
+})();
+```
+
+考虑到微信公众号的类另有用途，所以就没有都封装到类里面，而是单独抛出一个函数去做这件事，大家想一下这样写好不好啊？ 是的，不好。问题就在于，比如说我创建了一个单例对象实例是去处理公众号”江涛学编程“的相关业务的，后来迫于生计，老板决定卖艺，又搞了个”江涛学音乐“，那么这个时候你这个单例就歇菜了，因为它只有一个实现例的全局访问点，而 appid 每个微信公众号都是不同的。
+
+考虑到楼上这个场景，其实不能简单地去像楼上去设计单例模式。我想到一个例子，就好比水产养殖这个专业，海王他就知道，单纯地在池子里养草鱼，草鱼会有点孤单，它会不会不快乐呢？它会不会绝食呢？于是它把龙虾也放了进来，这样子至少显得不那么孤单，可以聊聊天，龙虾你今天吃什么？草鱼你今天吃什么？池子里充满了欢声笑语，哦，我明白了，我也给咱微信 API 接口造一个池子，开干。
+
+```javascript
+// 创建一个连接池
+const wechatOfficalAccountApiPool = {};
+
+// 创建一个微信公众号相关的API类
+class WechatOfficalAccountApi {
+  constructor(appId, appSecret, token) {
+    // code...
+  }
+}
+
+// 单例模式的实现
+function createWechatOfficalAccountApi(appId, appSecret, token) {
+  let instance = wechatOfficalAccountApiPool[appId];
+  if (!instance) {
+    instance = new WechatOfficalAccountApi(appId, appSecret, token);
+    wechatOfficalAccountApiPool[appId] = instance;
+  }
+  if (instance.appSecret !== appSecret || instance.token !== token) {
+    throw new Error(
+      `createWechatOfficalAccountApi(${appId}, ${appSecret}, ${token}): ` +
+        `conflict with existing one: (${instance.appId}, ${instance.appSecret}, ${instance.token})`
+    );
+  }
+  return instance;
+}
+```
+
+为了更健壮鲁棒一点，我们已知微信的 appid 是唯一的，就以它作为 key 来搞，这样子的话就可以处理多个业务场景了，比如老板开了好多个媒体号，有“江涛学编程”，”江涛学音乐“，”江涛去旅行“等等，根据不同的业务场景和用途，就可以在最基础的通用性强的微信接口 API 上去扩展实现对应的业务场景的功能。
+
 ## 参考文献
 
 - 维基百科 - 设计模式： https://zh.wikipedia.org/wiki/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F
