@@ -56,6 +56,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="decorator.html" />
+    
     
     <link rel="prev" href="singleton.html" />
     
@@ -125,46 +127,98 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" >
+        <li class="chapter " data-level="1.4" data-path="decorator.html">
             
-                <span>
+                <a href="decorator.html">
             
                     
                     装饰器模式
             
-                </span>
+                </a>
             
 
             
         </li>
     
-        <li class="chapter " data-level="1.5" >
+        <li class="chapter " data-level="1.5" data-path="proxy.html">
             
-                <span>
+                <a href="proxy.html">
             
                     
                     代理模式
             
-                </span>
+                </a>
             
 
             
         </li>
     
-        <li class="chapter " data-level="1.6" >
+        <li class="chapter " data-level="1.6" data-path="observer.html">
             
-                <span>
+                <a href="observer.html">
             
                     
                     观察者模式
             
-                </span>
+                </a>
             
 
             
         </li>
     
-        <li class="chapter " data-level="1.7" data-path="resource.html">
+        <li class="chapter " data-level="1.7" data-path="strategy.html">
+            
+                <a href="strategy.html">
+            
+                    
+                    策略模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="iterator.html">
+            
+                <a href="iterator.html">
+            
+                    
+                    迭代器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="publish-subscribe.html">
+            
+                <a href="publish-subscribe.html">
+            
+                    
+                    发布-订阅模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="adapter.html">
+            
+                <a href="adapter.html">
+            
+                    
+                    适配器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="resource.html">
             
                 <a href="resource.html">
             
@@ -223,6 +277,21 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="工厂模式">工厂模式</h1>
+<h2 id="工厂模式的基本概念">工厂模式的基本概念</h2>
+<p>读到“工厂”这个词，我脑海里浮现了几个词，&quot;批量&quot;, &quot;流水线&quot;, 连一起就是要搞批量流水线生产了。通过维基百科得知，工厂模式定义一个创建对象的接口，但让实现这个接口的类来决定实例化哪个类。工厂方法让类的实例化推迟到子类中进行。”</p>
+<h3 id="简单工厂">简单工厂</h3>
+<p>通过维基百科得知，简单工厂模式创建一个单一的工厂类，用以包含选择逻辑，根据参数的不同选择实现不同的具体对象。比如说养猪，它其实比较单一，就是养猪厂，你不需要考虑太多，给猪猪一个名字或者编号，然后按照它的品种去划分，例如长白猪、大白猪、杜洛克猪等，等养的差不多了，就可以联系买家来买了，这种养猪模型可以用简单工厂去实现。</p>
+<h3 id="抽象工厂">抽象工厂</h3>
+<p>通过维基百科得知，抽象工厂模式提供了一种方式，可以将一组具有同一主题的单独的工厂封装起来。比如波音公司的飞机厂，它有很多的飞机系列，例如波音 737、波音 747 等，飞机有供飞行员操作的操作系统，也有很多硬件，比如发动机、玻璃、轮胎等等，就比较复杂了。我们把一些公共的抽象出来，然后在具体的型号上去实现这些抽象定义的，像这种就可以用抽象工厂去实现。</p>
+<h2 id="工厂模式的实现">工厂模式的实现</h2>
+<h2 id="工厂模式的应用">工厂模式的应用</h2>
+<h2 id="参考文献">参考文献</h2>
+<ul>
+<li><p>维基百科 - 工厂模式： <a href="https://zh.wikipedia.org/wiki/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95" target="_blank">https://zh.wikipedia.org/wiki/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95</a></p>
+</li>
+<li><p>维基百科 - 抽象工厂模式: <a href="https://zh.wikipedia.org/wiki/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82" target="_blank">https://zh.wikipedia.org/wiki/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82</a></p>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -250,10 +319,14 @@
 
             
                 
-                <a href="singleton.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 单例模式">
+                <a href="singleton.html" class="navigation navigation-prev " aria-label="Previous page: 单例模式">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="decorator.html" class="navigation navigation-next " aria-label="Next page: 装饰器模式">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -262,7 +335,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"工厂模式","level":"1.3","depth":1,"next":{"title":"装饰器模式","level":"1.4","depth":1,"ref":"","articles":[]},"previous":{"title":"单例模式","level":"1.2","depth":1,"path":"singleton.md","ref":"singleton.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"factory.md","mtime":"2022-02-23T06:18:20.391Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-02-23T06:18:40.528Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"工厂模式","level":"1.3","depth":1,"next":{"title":"装饰器模式","level":"1.4","depth":1,"path":"decorator.md","ref":"decorator.md","articles":[]},"previous":{"title":"单例模式","level":"1.2","depth":1,"path":"singleton.md","ref":"singleton.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"factory.md","mtime":"2022-03-22T10:11:21.868Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-22T10:11:43.615Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
