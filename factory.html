@@ -280,11 +280,144 @@
 <h2 id="工厂模式的基本概念">工厂模式的基本概念</h2>
 <p>读到“工厂”这个词，我脑海里浮现了几个词，&quot;批量&quot;, &quot;流水线&quot;, 连一起就是要搞批量流水线生产了。通过维基百科得知，工厂模式定义一个创建对象的接口，但让实现这个接口的类来决定实例化哪个类。工厂方法让类的实例化推迟到子类中进行。”</p>
 <h3 id="简单工厂">简单工厂</h3>
-<p>通过维基百科得知，简单工厂模式创建一个单一的工厂类，用以包含选择逻辑，根据参数的不同选择实现不同的具体对象。比如说养猪，它其实比较单一，就是养猪厂，你不需要考虑太多，给猪猪一个名字或者编号，然后按照它的品种去划分，例如长白猪、大白猪、杜洛克猪等，等养的差不多了，就可以联系买家来买了，这种养猪模型可以用简单工厂去实现。</p>
+<p>通过维基百科得知，简单工厂模式创建一个单一的工厂类，用以包含选择逻辑，根据参数的不同选择实现不同的具体对象。比如说养猪，它其实比较单一，就是养猪厂，你不需要考虑太多，给猪猪一个名字或者编号，然后按照它的品种去划分，例如长白猪、大白猪、杜洛克猪等，等养的差不多了，就可以联系买家来买了，这种养猪模型可以用简单工厂去实现。简单地说，去实现一个简单工厂模式其实就是搞一套无脑传参。</p>
 <h3 id="抽象工厂">抽象工厂</h3>
-<p>通过维基百科得知，抽象工厂模式提供了一种方式，可以将一组具有同一主题的单独的工厂封装起来。比如波音公司的飞机厂，它有很多的飞机系列，例如波音 737、波音 747 等，飞机有供飞行员操作的操作系统，也有很多硬件，比如发动机、玻璃、轮胎等等，就比较复杂了。我们把一些公共的抽象出来，然后在具体的型号上去实现这些抽象定义的，像这种就可以用抽象工厂去实现。</p>
+<p>通过维基百科得知，抽象工厂模式提供了一种方式，可以将一组具有同一主题的单独的工厂封装起来。比如波音公司的飞机厂，它有很多的飞机系列，例如波音 737、波音 747 等，飞机有供飞行员操作的操作系统，也有很多硬件，比如发动机、玻璃、轮胎等等，就比较复杂了。我们把一些公共的抽象出来，然后在具体的型号上去实现这些抽象定义的，像这种就可以用抽象工厂去实现。简单地说，就是东西有点复杂，需要遵循开放封闭原则去设计这个模式。</p>
 <h2 id="工厂模式的实现">工厂模式的实现</h2>
-<h2 id="工厂模式的应用">工厂模式的应用</h2>
+<h3 id="简单工厂模式的实现">简单工厂模式的实现</h3>
+<p>以养猪为例（本故事纯属虚构，仅做代码演示）</p>
+<pre><code class="lang-typescript"><span class="hljs-comment">// 本故事纯属虚构，仅做代码演示</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SimpleFactory</span>(<span class="hljs-params">name: <span class="hljs-built_in">string</span>, <span class="hljs-keyword">type</span>: <span class="hljs-built_in">string</span></span>): <span class="hljs-title">Pig</span> </span>{
+  <span class="hljs-keyword">let</span> describe;
+  <span class="hljs-keyword">switch</span> (<span class="hljs-keyword">type</span>) {
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;长白猪&apos;</span>:
+      describe = <span class="hljs-string">&apos;美容养颜&apos;</span>;
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;大白猪&apos;</span>:
+      describe = <span class="hljs-string">&apos;吃了不胖&apos;</span>;
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;杜洛克猪&apos;</span>:
+      describe = <span class="hljs-string">&apos;可以当宠物&apos;</span>;
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">default</span>:
+      describe = <span class="hljs-string">&apos;可以种田&apos;</span>;
+      <span class="hljs-keyword">break</span>;
+  }
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Pig(name, <span class="hljs-keyword">type</span>, describe);
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Pig</span> </span>{
+  <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;
+  <span class="hljs-keyword">type</span>: <span class="hljs-built_in">string</span>;
+  describe: <span class="hljs-built_in">string</span>;
+
+  <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">name: <span class="hljs-built_in">string</span>, <span class="hljs-keyword">type</span>: <span class="hljs-built_in">string</span>, describe: <span class="hljs-built_in">string</span></span>)</span> {
+    <span class="hljs-built_in">this</span>.name = name;
+    <span class="hljs-built_in">this</span>.type = <span class="hljs-keyword">type</span>;
+    <span class="hljs-built_in">this</span>.describe = describe;
+  }
+}
+</code></pre>
+<h3 id="抽象工厂模式的实现">抽象工厂模式的实现</h3>
+<p>以造飞机为例，这里意思下，就拿飞机的操作系统和发动机做演示（本故事纯属虚构，仅做代码演示）</p>
+<pre><code class="lang-typescript"><span class="hljs-comment">// 定义操作系统相关接口</span>
+<span class="hljs-keyword">interface</span> OS {
+  <span class="hljs-comment">// 控制发动机引擎</span>
+  controlEngine(): <span class="hljs-built_in">void</span>;
+}
+
+<span class="hljs-comment">// 定义发动机引擎相关接口</span>
+<span class="hljs-keyword">interface</span> Engine {
+  <span class="hljs-comment">// 提供相关操作接口</span>
+  operateAPI(): <span class="hljs-built_in">void</span>;
+}
+
+<span class="hljs-comment">// 定义飞机厂相关接口，其他啥也不干</span>
+<span class="hljs-keyword">interface</span> AirplaneFactory {
+  <span class="hljs-comment">// 创建操作系统</span>
+  createOS(): OS;
+  <span class="hljs-comment">// 创建发动机引擎</span>
+  createEngine(): Engine;
+}
+
+<span class="hljs-comment">// VxWorks操作系统</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VxWorks</span> <span class="hljs-title">implements</span> <span class="hljs-title">OS</span> </span>{
+  controlEngine(): <span class="hljs-built_in">void</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;这里是VxWorks操作系统，详情请咨询：http://www.windriver.com/products/vxworks/&apos;</span>);
+  }
+}
+
+<span class="hljs-comment">// Integrity-178B操作系统</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Integrity178B</span> <span class="hljs-title">implements</span> <span class="hljs-title">OS</span> </span>{
+  controlEngine(): <span class="hljs-built_in">void</span> {
+    <span class="hljs-built_in">console</span>.log(
+      <span class="hljs-string">&apos;这里是Integrity-178B操作系统， 详情请咨询：https://www.ghs.com/products/safety_critical/integrity-do-178b.html&apos;</span>
+    );
+  }
+}
+
+<span class="hljs-comment">// GEnx发动机引擎</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GEnx</span> <span class="hljs-title">implements</span> <span class="hljs-title">Engine</span> </span>{
+  operateAPI(): <span class="hljs-built_in">void</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;GEnx发动机引擎运行&apos;</span>);
+  }
+}
+
+<span class="hljs-comment">// Trent XWB发动机引擎</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TrentXWB</span> <span class="hljs-title">implements</span> <span class="hljs-title">Engine</span> </span>{
+  operateAPI(): <span class="hljs-built_in">void</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Trent XWB发动机引擎运行&apos;</span>);
+  }
+}
+
+<span class="hljs-comment">// 波音-787飞机厂</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Boeing787</span> <span class="hljs-title">implements</span> <span class="hljs-title">AirplaneFactory</span> </span>{
+  createOS(): OS {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> VxWorks();
+  }
+
+  createEngine(): Engine {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> GEnx();
+  }
+}
+
+<span class="hljs-comment">// 空客-A350飞机厂</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AirbusA350</span> <span class="hljs-title">implements</span> <span class="hljs-title">AirplaneFactory</span> </span>{
+  createOS(): OS {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Integrity178B();
+  }
+
+  createEngine(): Engine {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> TrentXWB();
+  }
+}
+
+<span class="hljs-comment">// 开始造波音787</span>
+<span class="hljs-keyword">const</span> boeing787 = <span class="hljs-keyword">new</span> Boeing787();
+<span class="hljs-keyword">const</span> boing787OS = boeing787.createOS();
+<span class="hljs-keyword">const</span> boeing787Engine = boeing787.createEngine();
+<span class="hljs-comment">// 波音787启动操作系统</span>
+boing787OS.controlEngine();
+<span class="hljs-comment">// 波音787调整引擎推力</span>
+boeing787Engine.operateAPI();
+
+<span class="hljs-comment">// 开始造空客A350</span>
+<span class="hljs-keyword">const</span> airbusA350 = <span class="hljs-keyword">new</span> AirbusA350();
+<span class="hljs-keyword">const</span> airbusA350OS = airbusA350.createOS();
+<span class="hljs-keyword">const</span> airbusA350Engine = airbusA350.createEngine();
+<span class="hljs-comment">// 空客A350启动操作系统</span>
+airbusA350OS.controlEngine();
+<span class="hljs-comment">// 空客A350调整引擎推力</span>
+airbusA350Engine.operateAPI();
+</code></pre>
+<p>运行这里全局安装<code>ts-node</code>这个 npm 包，然后运行相关文件即可，如</p>
+<pre><code class="lang-shell">PS D:\ataola\github\ataola\coding-ts\code\design-pattern\factory&gt; ts-node .\abstract-factory.ts
+这里是VxWorks操作系统，详情请咨询：http://www.windriver.com/products/vxworks/
+GEnx发动机引擎运行
+这里是Integrity-178B操作系统， 详情请咨询：https://www.ghs.com/products/safety_critical/integrity-do-178b.html
+Trent XWB发动机引擎运行
+PS D:\ataola\github\ataola\coding-ts\code\design-pattern\factory&gt;
+</code></pre>
 <h2 id="参考文献">参考文献</h2>
 <ul>
 <li><p>维基百科 - 工厂模式： <a href="https://zh.wikipedia.org/wiki/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95" target="_blank">https://zh.wikipedia.org/wiki/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95</a></p>
@@ -335,7 +468,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"工厂模式","level":"1.3","depth":1,"next":{"title":"装饰器模式","level":"1.4","depth":1,"path":"decorator.md","ref":"decorator.md","articles":[]},"previous":{"title":"单例模式","level":"1.2","depth":1,"path":"singleton.md","ref":"singleton.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"factory.md","mtime":"2022-03-22T10:11:21.868Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-22T10:11:43.615Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"工厂模式","level":"1.3","depth":1,"next":{"title":"装饰器模式","level":"1.4","depth":1,"path":"decorator.md","ref":"decorator.md","articles":[]},"previous":{"title":"单例模式","level":"1.2","depth":1,"path":"singleton.md","ref":"singleton.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"factory.md","mtime":"2022-03-25T08:20:29.440Z","type":"markdown"},"gitbook":{"version":"3.7.1","time":"2022-03-25T08:20:52.543Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
